@@ -2,6 +2,7 @@
 
 using Colors
 using CairoMakie
+using ColorSchemes
 
 fig_theme = Theme(fonts = (; regular = "Calibri", weird = "Calibri"),
                   fontsize=8,

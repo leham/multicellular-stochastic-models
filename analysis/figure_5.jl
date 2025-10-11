@@ -1,5 +1,6 @@
 envpath = normpath(joinpath((@__DIR__, "../envs/env2")))
 srcpath = normpath(joinpath((@__DIR__, "../src/")))
+datapath = normpath(joinpath((@__DIR__, "../data/")))
 using Pkg; Pkg.activate(envpath)
 include(srcpath*"plotting.jl")
 include(srcpath*"cellular_automaton.jl")
@@ -164,7 +165,7 @@ n, m = 256, 256
 σ = 0.05
 
 plot_collision_zoom(n, m, ρ, σ)
-open("example_1.svg", "w") do f write(f, svgstring()) end
+#open("example_1.svg", "w") do f write(f, svgstring()) end
 
 # ------------------------------------------------------------------------------------------------------------
 # Figure 5(C) bottom right
@@ -241,8 +242,8 @@ end
 
 prange = 0.01:0.005:0.1
 
-mean_growth_rates = @time get_growth_rate_vs_σ(prange, 2e-6, 256, 256, nsamples=1000, step_size=1)
-#@load "mean_growth_rates.jld2" mean_growth_rates prange
+#mean_growth_rates = @time get_growth_rate_vs_σ(prange, 2e-6, 256, 256, nsamples=10000, step_size=1)
+@load datapath*"mean_growth_rates.jld2" mean_growth_rates prange
 
 f = CairoMakie.Figure(size = (size_pt[1]*0.8, size_pt[2]*0.8), figure_padding = 1)
 ax = Axis(f[1, 1], xlabel = "Signal strength σ", ylabel = "Growth rate r",
@@ -307,8 +308,8 @@ function collect_radii_vs_σ(prange, ρ, n, m; nsamples::Int=10, ntasks=nthreads
     return radius_time_vec
 end
 
-@time rts_vec = collect_radii_vs_σ(prange, 2e-6, 256, 256, nsamples=1000)
-#@load "analysis/data/radius_time_vector.jld2" rts_vec prange
+#@time rts_vec = collect_radii_vs_σ(prange, 2e-6, 256, 256, nsamples=100000)
+@load datapath*"radius_time_vector.jld2" rts_vec prange
 
 # ------------------------------------------------------------------------------------------------------------
 # Figure 5(C) (bottom left)
