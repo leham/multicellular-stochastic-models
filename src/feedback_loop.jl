@@ -41,6 +41,18 @@ function init_cells_FL!(cells::AbstractMatrix)
     return nothing
 end
 
+# Slightly different initialisation strategy for a small grid
+function init_cells_FL_small!(cells::AbstractMatrix)
+    reset_grid_FL!(cells)
+    n, m = size(cells)
+    cells[Int(n/2), Int(m/2)][2] = 1
+    cells[Int(n/2+3), Int(m/2+3)][2] = 1
+    cells[Int(n/2-3), Int(m/2+3)][2] = 1
+    cells[Int(n/2+3), Int(m/2-3)][2] = 1
+    cells[Int(n/2-3), Int(m/2-3)][2] = 1
+    return nothing
+end
+
 # (re)initialise the cell grid so that each gene is ON with a certain probability p
 function init_cells_uniform_FL!(cells::AbstractMatrix; p::Real=0.1)
     reset_grid_FL!(cells)

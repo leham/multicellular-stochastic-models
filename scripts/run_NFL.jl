@@ -10,10 +10,9 @@ using JLD2
 using OhMyThreads: tmap
 using Base.Threads: nthreads
 using LinearAlgebra
-using ThreadPinning
-
-BLAS.set_num_threads(1)
-pinthreads(:affinitymask)
+#using ThreadPinning
+#BLAS.set_num_threads(1)
+#pinthreads(:affinitymask)
 
 # Tau leaping
 tau = 0.01
@@ -102,4 +101,4 @@ ntrajectories = 100
 println("Simulation time = ", n_snapshots * niter_per_snapshot * tau)
 
 res = @time get_timeseries_η_vs_σ_b(n_snapshots, niter_per_snapshot, η_values, σ_b_values, ntrajectories)
-@save datapath*"timeseries_NFL.jld2" η_values σ_b_values res
+@save datapath*"mean_timeseries/timeseries_NFL.jld2" η_values σ_b_values res

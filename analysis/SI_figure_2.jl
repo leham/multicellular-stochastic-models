@@ -115,7 +115,7 @@ res = @time get_timeseries_η_vs_σ_b(n_snapshots, niter_per_snapshot, η_values
 
 # NOTE: the dataset used for final analysis is generated using scripts/run_NFL.jl
 # the code above similar to the code in the script, but it's left here for completeness and to enable exploration
-@load datapath*"timeseries_NFL.jld2" η_values σ_b_values res
+@load datapath*"mean_timeseries/timeseries_NFL.jld2" η_values σ_b_values res
 
 mean_timeseries = map(x -> first(x), res)
 var_timeseries = map(x -> x[2], res)

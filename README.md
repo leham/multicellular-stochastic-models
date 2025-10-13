@@ -8,6 +8,7 @@ The code is used to to simulate both single-cell and 2D spatial stochastic model
 
 - `analysis` - scripts used to reproduce the analysis and figures in the paper.
 - `src` - main code for building stochastic gene models used throughout the analysis.
+- `scripts` - Julia scripts used for longer multithreaded simulations.
 - `envs` - Julia environments loading the relevant packages.
 
 More details about specific files can be found within each folder.
