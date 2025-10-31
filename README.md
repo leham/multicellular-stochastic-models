@@ -1,6 +1,6 @@
 # multicellular-stochastic-models
 
-[<img src="assets/lattice.svg" width="100%"/>](lattice.svg)
+<img src="assets/lattice.svg" width="100%"/>
 
 This repository contains Julia code for the paper: &nbsp; L. Ham, M.G. Jackson, A. Sukys, and M.P.H Stumpf, "Intercellular signaling drives robust cell fate and patterning in multicellular systems" (2025).
 
