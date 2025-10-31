@@ -1,5 +1,7 @@
 # multicellular-stochastic-models
 
+[<img src="assets/lattice.svg" width="100%"/>](lattice.svg)
+
 This repository contains Julia code for the paper: &nbsp; L. Ham, M.G. Jackson, A. Sukys, and M.P.H Stumpf, "Intercellular signaling drives robust cell fate and patterning in multicellular systems" (2025).
 
 The code is used to to simulate both single-cell and 2D spatial stochastic models that capture fine-scale gene regulatory mechanisms driving cell fate decision, exploring how local signalling and regulatory feedback shape multicellular dynamics and spatial organisation.
